@@ -6,7 +6,7 @@ import base64, os, sys
 # TextEncode is a small tool in which you can encode and deocde text    #
 # using fifteen selected ciphers. This is based on a online API.        #
 #                                                                       #
-# Copyright (C) 2010 Osanda Malith Jayathissa                           #
+# Copyright (C) 2014 Osanda Malith Jayathissa                           #
 #                                                                       #
 # This program is free software: you can redistribute it and/or modify  #
 # it under the terms of the GNU General Public License as published by  #
