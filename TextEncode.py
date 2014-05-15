@@ -95,6 +95,7 @@ def banner():
 \t   |_|\___/_/\_\\\\__|______|_| |_|\___\___/ \__,_|\___|
 \n
 \t[*] Author: Osanda Malith Jayathissa
+\t[*] Follow @OsandaMalith
 '''
 	return banner
 
