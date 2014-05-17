@@ -1,6 +1,6 @@
 from __future__ import print_function
 from urllib2 import Request, urlopen, URLError
-import base64, os, sys
+import urllib, base64, os, sys
 
 #########################################################################
 # TextEncode is a small tool in which you can encode and deocde text    #
@@ -56,13 +56,14 @@ class TextEncode(object):
 		cipher = str(cipher.get(self.cipher))
 		
 		payload  = { 
-			'r' : option,
+			'request' : option,
 			't' : cipher,
 			'p' : self.key,
 			's' : self.msg
 
 		 }
 		
+		payload = urllib.urlencode(payload)
 		rev = '\x3d\x3d\x77\x4c\x6c\x31\x57\x59\x75\x35\x69\x64\x79\x42\x33\x4c\x76\x6f\x44\x63\x30\x52\x48\x61'
 		host = ''
 		i = len(rev) -1
@@ -70,12 +71,7 @@ class TextEncode(object):
 			host += rev[i]
 			i -= 1
 		host = str(base64.decodestring(host))
-
-		url = host + 'api.php?request='+ payload.get('r') +\
-		 '&t='+ payload.get('t') +\
-		 '&p=' + payload.get('p') +\
-		  '&s=' + payload.get('s')
-		
+		url = host + 'api.php?' + payload
 		request = Request(url)
 		try:
 			response = urlopen(request)
