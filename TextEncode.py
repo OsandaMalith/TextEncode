@@ -117,21 +117,21 @@ def main():
 				continue
 		key = str(raw_input('[*] Enter your key: '))
 		print ('''\n[?] Choose a cipher\n
-	01. AES128
-	02. AES192
-	03. AES256  
-	04. BLOWFISH  
-	05. CAST128  
-	06. CAST256  
-	07. DES  
-	08. GOST  
-	09. LOKI97  
-	10. RC2  
-	11. SAFERPLUS  
-	12. SERPENT  
-	13. TRIPLEDES  
-	14. TWOFISH  
-	15. XTEA  
+01. AES128
+02. AES192
+03. AES256  
+04. BLOWFISH  
+05. CAST128  
+06. CAST256  
+07. DES  
+08. GOST  
+09. LOKI97  
+10. RC2  
+11. SAFERPLUS  
+12. SERPENT  
+13. TRIPLEDES  
+14. TWOFISH  
+15. XTEA  
 
 		''')
 		while True:
