@@ -82,6 +82,8 @@ class TextEncode(object):
 			out = response.read()
 			if option == 'encrypt':
 				print ('[~] Encrypted text is: {0}'.format(str(out)))
+			else:
+				print ('[~] Decrypted text is: {0}'.format(str(out)))
 		except URLError:
 		    print ('[!] Are you connected to the Internet?')
 
@@ -94,8 +96,8 @@ def banner():
 \t   | |  __/>  <| |_| |____| | | | (_| (_) | (_| |  __/
 \t   |_|\___/_/\_\\\\__|______|_| |_|\___\___/ \__,_|\___|
 \n
-\t[*] Author: Osanda Malith Jayathissa
-\t[*] Follow @OsandaMalith
+\t\t[*] Author: Osanda Malith Jayathissa
+\t\t[*] Follow @OsandaMalith
 '''
 	return banner
 
@@ -108,41 +110,49 @@ def cls():
 def main():
 	cls()
 	print ('{0}'.format(banner()))
-	msg = str(raw_input('[*] Enter your msg: '))
-	while True:
-		try:
-			encdec = int(raw_input('1. Encode\n2. Decode \n'))
-			break
-		except ValueError:
-			print ('[!] Enter only a number')
-			continue
-	key = str(raw_input('[*] Enter your key: '))
-	print ('''\n[?] Choose a cipher
-01. AES128
-02. AES192
-03. AES256  
-04. BLOWFISH  
-05. CAST128  
-06. CAST256  
-07. DES  
-08. GOST  
-09. LOKI97  
-10. RC2  
-11. SAFERPLUS  
-12. SERPENT  
-13. TRIPLEDES  
-14. TWOFISH  
-15. XTEA  
+	try:
+		msg = str(raw_input('[*] Enter your msg: '))
+		while True:
+			try:
+				encdec = int(raw_input('1. Encode\n2. Decode \n'))
+				break
+			except ValueError:
+				print ('[!] Enter only a number')
+				continue
+		key = str(raw_input('[*] Enter your key: '))
+		print ('''\n[?] Choose a cipher\n
+	01. AES128
+	02. AES192
+	03. AES256  
+	04. BLOWFISH  
+	05. CAST128  
+	06. CAST256  
+	07. DES  
+	08. GOST  
+	09. LOKI97  
+	10. RC2  
+	11. SAFERPLUS  
+	12. SERPENT  
+	13. TRIPLEDES  
+	14. TWOFISH  
+	15. XTEA  
 
-	''')
-	while True:
-		try:
-			choice = int(raw_input(''))
-			break
-		except ValueError:
-			print ('[!] Enter only a number')
-			continue
-	TextEncode(msg,encdec,key, choice).crypt()
+		''')
+		while True:
+			try:
+				choice = int(raw_input(''))
+				break
+			except ValueError:
+				print ('[!] Enter only a number')
+				continue
+		TextEncode(msg,encdec,key, choice).crypt()
+	except KeyboardInterrupt:
+			print ('[!] Ctrl + C detected\n[!] Exiting')
+			sys.exit(0)
+	except EOFError:
+		print ('[!] Ctrl + D detected\n[!] Exiting')
+		sys.exit(0)
+	
 if __name__ == "__main__": 
     main()  
 #EOF
